@@ -1,11 +1,17 @@
-package trabajopractico5;
+package main;
 
 import logica.Contacto;
 import logica.DirectorioTelefonico;
+import vista.frmMenuPrincipal;
 
 public class Main {
 
     public static void main(String[] args) {
+
+        frmMenuPrincipal menuPrincipal = new frmMenuPrincipal(); //Instancia del jframe
+        menuPrincipal.setVisible(true);
+        menuPrincipal.setLocationRelativeTo(null);
+
 //        DirectorioTelefonico directorio = new DirectorioTelefonico();
 //
 //        //Crear contactos
@@ -39,7 +45,6 @@ public class Main {
 //        directorio.borrarContacto(1177665544L);
 //        System.out.println("Directorio después de borrar:");
 //        System.out.println(directorio.getListaContactos());
-
     }
 
 }

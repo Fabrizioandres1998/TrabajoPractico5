@@ -2,13 +2,13 @@ package logica;
 
 public class Contacto {
 
-    private String dni;
+    private int dni;
     private String nombre;
     private String apellido;
     private String ciudad;
     private String direccion;
 
-    public Contacto(String dni, String nombre, String apellido, String ciudad, String direccion) {
+    public Contacto(int dni, String nombre, String apellido, String ciudad, String direccion) {
         this.dni = dni;
         this.nombre = nombre;
         this.apellido = apellido;
@@ -21,11 +21,11 @@ public class Contacto {
         return "Contacto{" + "dni=" + dni + ", nombre=" + nombre + ", apellido=" + apellido + ", ciudad=" + ciudad + ", direccion=" + direccion + '}';
     }
 
-    public String getDni() {
+    public int getDni() {
         return dni;
     }
 
-    public void setDni(String dni) {
+    public void setDni(int dni) {
         this.dni = dni;
     }
 
