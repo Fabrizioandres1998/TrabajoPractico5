@@ -1,19 +1,80 @@
+
 package vista;
 
 import java.util.HashSet;
 import logica.DirectorioTelefonico;
+import logica.Contacto;
+import java.util.TreeSet;
+import java.util.Set;
 
+/**
+ *
+ * @author vanesa
+ */
 public class frmMenuPrincipal extends javax.swing.JFrame {
 
-    /**
-     * Creates new form FrmMenuPrincipal
-     */
     public static DirectorioTelefonico directorio = new DirectorioTelefonico();
-    public static HashSet listaCiudades = new HashSet<>();
+    public static Set<String> ciudades = new TreeSet<>();
+    static HashSet<String> listaCiudades;
 
+    /**
+     * Creates new form frmMenuPrincipal
+     */
     public frmMenuPrincipal() {
         initComponents();
+        // Cargar ciudades por defecto
+        ciudades.add("San Luis");
+        ciudades.add("Villa Mercedes");
+        ciudades.add("Mendoza");
+        ciudades.add("Buenos Aires");
+        // Contactos de prueba
+        Contacto c1 = new Contacto(12345678, "Juan", "Perez", "San Luis", "Calle Falsa 123");
+        Contacto c2 = new Contacto(87654321, "Maria", "Gomez", "Villa Mercedes", "Av. Siempre Viva 742");
+        Contacto c3 = new Contacto(11223344, "Lucia", "Lopez", "Mendoza", "Calle 9 45");
+        directorio.agregarContacto(2664123456L, c1);
+        directorio.agregarContacto(2664987654L, c2);
+        directorio.agregarContacto(2614123456L, c3);
+try {
+        jMenuItem1.addActionListener(e -> {
+            frmAgregar f = new frmAgregar();
+            jdpMenuPrincipal.add(f);
+            f.setVisible(true);
+        });
+
+        jMenuItem2.addActionListener(e -> {
+            frmBuscar f = new frmBuscar();
+            jdpMenuPrincipal.add(f);
+            f.setVisible(true);
+        });
+
+        jMenuItem3.addActionListener(e -> {
+            frmBorrar f = new frmBorrar();
+            jdpMenuPrincipal.add(f);
+            f.setVisible(true);
+        });
+
+        jMenuItem4.addActionListener(e -> {
+            frmBuscarClienteCiudad f = new frmBuscarClienteCiudad();
+            jdpMenuPrincipal.add(f);
+            f.setVisible(true);
+        });
+
+        jMenuItem5.addActionListener(e -> {
+            frmBuscarTelefonoPorApellido f = new frmBuscarTelefonoPorApellido();
+            jdpMenuPrincipal.add(f);
+            f.setVisible(true);
+        });
+
+        jMenuItem6.addActionListener(e -> {
+            frmAgregarCiudad f = new frmAgregarCiudad();
+            jdpMenuPrincipal.add(f);
+            f.setVisible(true);
+        });
+    } catch (Exception ex) {
+        // Ignorar si algún item no existe
     }
+}
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -24,105 +85,118 @@ public class frmMenuPrincipal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jList1 = new javax.swing.JList<>();
+        jMenuBar2 = new javax.swing.JMenuBar();
+        jMenu3 = new javax.swing.JMenu();
+        jMenu4 = new javax.swing.JMenu();
         jdpMenuPrincipal = new javax.swing.JDesktopPane();
+        jdpMenuPrincipal1 = new javax.swing.JDesktopPane();
         jMenuBar1 = new javax.swing.JMenuBar();
-        jmContactos = new javax.swing.JMenu();
-        jmiAgregarContacto = new javax.swing.JMenuItem();
-        jmiBuscarContacto = new javax.swing.JMenuItem();
-        jmiBorrarContacto = new javax.swing.JMenuItem();
-        jmDirectorio = new javax.swing.JMenu();
-        jmiDirectorio = new javax.swing.JMenuItem();
-        jmCiudades = new javax.swing.JMenu();
-        jmiAgregarCiudad = new javax.swing.JMenuItem();
-        jmSalir = new javax.swing.JMenu();
-        jmiSalir = new javax.swing.JMenuItem();
+        jMenu2 = new javax.swing.JMenu();
+        jMenuItem4 = new javax.swing.JMenuItem();
+        jMenu5 = new javax.swing.JMenu();
+        jMenuItem5 = new javax.swing.JMenuItem();
+        jMenu6 = new javax.swing.JMenu();
+        jMenuItem6 = new javax.swing.JMenuItem();
+        jMenu1 = new javax.swing.JMenu();
+        jMenuItem1 = new javax.swing.JMenuItem();
+        jMenuItem2 = new javax.swing.JMenuItem();
+        jMenuItem3 = new javax.swing.JMenuItem();
+
+        jList1.setModel(new javax.swing.AbstractListModel<String>() {
+            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+            public int getSize() { return strings.length; }
+            public String getElementAt(int i) { return strings[i]; }
+        });
+        jScrollPane1.setViewportView(jList1);
+
+        jMenu3.setText("File");
+        jMenuBar2.add(jMenu3);
+
+        jMenu4.setText("Edit");
+        jMenuBar2.add(jMenu4);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        javax.swing.GroupLayout jdpMenuPrincipal1Layout = new javax.swing.GroupLayout(jdpMenuPrincipal1);
+        jdpMenuPrincipal1.setLayout(jdpMenuPrincipal1Layout);
+        jdpMenuPrincipal1Layout.setHorizontalGroup(
+            jdpMenuPrincipal1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 538, Short.MAX_VALUE)
+        );
+        jdpMenuPrincipal1Layout.setVerticalGroup(
+            jdpMenuPrincipal1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 357, Short.MAX_VALUE)
+        );
+
+        jdpMenuPrincipal.setLayer(jdpMenuPrincipal1, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout jdpMenuPrincipalLayout = new javax.swing.GroupLayout(jdpMenuPrincipal);
         jdpMenuPrincipal.setLayout(jdpMenuPrincipalLayout);
         jdpMenuPrincipalLayout.setHorizontalGroup(
             jdpMenuPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 579, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jdpMenuPrincipalLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jdpMenuPrincipal1)
+                .addContainerGap())
         );
         jdpMenuPrincipalLayout.setVerticalGroup(
             jdpMenuPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 359, Short.MAX_VALUE)
+            .addGroup(jdpMenuPrincipalLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jdpMenuPrincipal1)
+                .addGap(19, 19, 19))
         );
 
-        jmContactos.setText("Contactos");
-        jmContactos.addActionListener(new java.awt.event.ActionListener() {
+        jMenu2.setText("Directorio");
+
+        jMenuItem4.setText("DIrectorio");
+        jMenu2.add(jMenuItem4);
+
+        jMenuBar1.add(jMenu2);
+
+        jMenu5.setText("Ciudades");
+
+        jMenuItem5.setText("Agregar Ciudad");
+        jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jmContactosActionPerformed(evt);
+                jMenuItem5ActionPerformed(evt);
             }
         });
+        jMenu5.add(jMenuItem5);
 
-        jmiAgregarContacto.setText("Agregar contacto");
-        jmiAgregarContacto.addActionListener(new java.awt.event.ActionListener() {
+        jMenuBar1.add(jMenu5);
+
+        jMenu6.setText("Salir");
+
+        jMenuItem6.setText("Salir");
+        jMenuItem6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jmiAgregarContactoActionPerformed(evt);
+                jMenuItem6ActionPerformed(evt);
             }
         });
-        jmContactos.add(jmiAgregarContacto);
+        jMenu6.add(jMenuItem6);
 
-        jmiBuscarContacto.setText("Buscar contacto");
-        jmiBuscarContacto.addActionListener(new java.awt.event.ActionListener() {
+        jMenuBar1.add(jMenu6);
+
+        jMenu1.setText("Contacto");
+
+        jMenuItem1.setText("Agregar Contacto");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jmiBuscarContactoActionPerformed(evt);
+                jMenuItem1ActionPerformed(evt);
             }
         });
-        jmContactos.add(jmiBuscarContacto);
+        jMenu1.add(jMenuItem1);
 
-        jmiBorrarContacto.setText("Borrar contacto");
-        jmiBorrarContacto.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jmiBorrarContactoActionPerformed(evt);
-            }
-        });
-        jmContactos.add(jmiBorrarContacto);
+        jMenuItem2.setText("Buscar Contacto");
+        jMenu1.add(jMenuItem2);
 
-        jMenuBar1.add(jmContactos);
+        jMenuItem3.setText("Borrar Contacto");
+        jMenu1.add(jMenuItem3);
 
-        jmDirectorio.setText("Directorio");
-        jmDirectorio.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jmDirectorioActionPerformed(evt);
-            }
-        });
-
-        jmiDirectorio.setText("Directorio");
-        jmiDirectorio.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jmiDirectorioActionPerformed(evt);
-            }
-        });
-        jmDirectorio.add(jmiDirectorio);
-
-        jMenuBar1.add(jmDirectorio);
-
-        jmCiudades.setText("Ciudades");
-        jmCiudades.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jmCiudadesActionPerformed(evt);
-            }
-        });
-
-        jmiAgregarCiudad.setText("Agregar ciudad");
-        jmiAgregarCiudad.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jmiAgregarCiudadActionPerformed(evt);
-            }
-        });
-        jmCiudades.add(jmiAgregarCiudad);
-
-        jMenuBar1.add(jmCiudades);
-
-        jmSalir.setText("Salir");
-
-        jmiSalir.setText("Salir");
-        jmSalir.add(jmiSalir);
-
-        jMenuBar1.add(jmSalir);
+        jMenuBar1.add(jMenu1);
 
         setJMenuBar(jMenuBar1);
 
@@ -130,72 +204,89 @@ public class frmMenuPrincipal extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jdpMenuPrincipal)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jdpMenuPrincipal)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jdpMenuPrincipal)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jdpMenuPrincipal)
+                .addGap(19, 19, 19))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jmiBuscarContactoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiBuscarContactoActionPerformed
-        frmBuscar buscarContacto = new frmBuscar(); //instancia del jinternalframe
-        jdpMenuPrincipal.add(buscarContacto); //agregar la instancia del jif al jdesktoppane
-        buscarContacto.setVisible(true); //hacerlo visible
-    }//GEN-LAST:event_jmiBuscarContactoActionPerformed
-
-    private void jmiAgregarContactoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiAgregarContactoActionPerformed
-        frmAgregar agregarContacto = new frmAgregar(); //instancia del jinternalframe
-        jdpMenuPrincipal.add(agregarContacto); //agregar la instancia del jif al jdesktoppane
-        agregarContacto.setVisible(true); //hacerlo visible
-    }//GEN-LAST:event_jmiAgregarContactoActionPerformed
-
-    private void jmContactosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmContactosActionPerformed
+    private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jmContactosActionPerformed
+    }//GEN-LAST:event_jMenuItem5ActionPerformed
 
-    private void jmiBorrarContactoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiBorrarContactoActionPerformed
-        frmBorrar borrarContacto = new frmBorrar(); //instancia del jinternalframe
-        jdpMenuPrincipal.add(borrarContacto); //agregar la instancia del jif al jdesktoppane
-        borrarContacto.setVisible(true); //hacerlo visible
-    }//GEN-LAST:event_jmiBorrarContactoActionPerformed
-
-    private void jmDirectorioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmDirectorioActionPerformed
+    private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jmDirectorioActionPerformed
+    }//GEN-LAST:event_jMenuItem6ActionPerformed
 
-    private void jmiDirectorioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiDirectorioActionPerformed
-
-    }//GEN-LAST:event_jmiDirectorioActionPerformed
-
-    private void jmiAgregarCiudadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiAgregarCiudadActionPerformed
-        frmAgregarCiudad agregarCiudad = new frmAgregarCiudad(); //instancia del jinternalframe
-        jdpMenuPrincipal.add(agregarCiudad); //agregar la instancia del jif al jdesktoppane
-        agregarCiudad.setVisible(true); //hacerlo visible
-    }//GEN-LAST:event_jmiAgregarCiudadActionPerformed
-
-    private void jmCiudadesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmCiudadesActionPerformed
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jmCiudadesActionPerformed
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     /**
      * @param args the command line arguments
      */
+    public static void main(String args[]) {
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(frmMenuPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(frmMenuPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(frmMenuPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(frmMenuPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
+
+        /* Create and display the form */
+      
+            }
+         
+        // Asociar acciones a los items del menú (si existen)
+       
+            // Ignorar si algún item no existe
+        
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JList<String> jList1;
+    private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenu jMenu3;
+    private javax.swing.JMenu jMenu4;
+    private javax.swing.JMenu jMenu5;
+    private javax.swing.JMenu jMenu6;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuBar jMenuBar2;
+    private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenuItem jMenuItem3;
+    private javax.swing.JMenuItem jMenuItem4;
+    private javax.swing.JMenuItem jMenuItem5;
+    private javax.swing.JMenuItem jMenuItem6;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JDesktopPane jdpMenuPrincipal;
-    private javax.swing.JMenu jmCiudades;
-    private javax.swing.JMenu jmContactos;
-    private javax.swing.JMenu jmDirectorio;
-    private javax.swing.JMenu jmSalir;
-    private javax.swing.JMenuItem jmiAgregarCiudad;
-    private javax.swing.JMenuItem jmiAgregarContacto;
-    private javax.swing.JMenuItem jmiBorrarContacto;
-    private javax.swing.JMenuItem jmiBuscarContacto;
-    private javax.swing.JMenuItem jmiDirectorio;
-    private javax.swing.JMenuItem jmiSalir;
+    private javax.swing.JDesktopPane jdpMenuPrincipal1;
     // End of variables declaration//GEN-END:variables
 }
